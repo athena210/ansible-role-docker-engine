@@ -1,0 +1,10 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for install_docker
+
+# run
+#   apt-cache policy docker-ce
+# to see available versions
+install_docker__version_needed: ""
+install_docker__force_update_repo: false
+install_docker__force_install: false
