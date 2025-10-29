@@ -27,13 +27,13 @@
     install_docker__installed_version_d: >-
       {{ install_docker__installed_version_d | default({}) |
          combine({
-           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sInstalled:\s+(\S+)', '\1') or [''] | first
+           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sInstalled:\s+(\S+)', '\1') | default(['']) | first
          })
       }}
     install_docker__latest_version_d: >-
       {{ install_docker__latest_version_d | default({}) |
          combine({
-           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sCandidate:\s+(\S+)', '\1') or [''] | first
+           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sCandidate:\s+(\S+)', '\1') | default(['']) | first
          })
       }}
   loop: "{{ install_docker__package_info_output.results }}"
@@ -129,13 +129,13 @@
     install_docker__installed_version_d: >-
       {{ install_docker__installed_version_d | default({}) |
          combine({
-           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sInstalled:\s+(\S+)', '\1') or [''] | first
+           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sInstalled:\s+(\S+)', '\1') | default(['']) | first
          })
       }}
     install_docker__latest_version_d: >-
       {{ install_docker__latest_version_d | default({}) |
          combine({
-           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sCandidate:\s+(\S+)', '\1') or [''] | first
+           (pkg_policy_output.item): pkg_policy_output.stdout | regex_search('\sCandidate:\s+(\S+)', '\1') | default(['']) | first
          })
       }}
   loop: "{{ install_docker__package_info_output.results }}"
